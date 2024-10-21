@@ -24,6 +24,8 @@ public class ClearingCost implements Serializable {
     @Column(name = "clearing_cost", nullable = false)
     private BigDecimal clearingCost;
 
+    public ClearingCost() {}
+
     public ClearingCost(String countryCode, BigDecimal clearingCost) {
         this.countryCode = countryCode;
         this.clearingCost = clearingCost;
