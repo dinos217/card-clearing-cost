@@ -17,7 +17,6 @@ public class ClearingCost implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //todo: think if countryCode could be the ID of the table
 
     @Column(name = "country_code", nullable = false, unique = true)
     private String countryCode;
