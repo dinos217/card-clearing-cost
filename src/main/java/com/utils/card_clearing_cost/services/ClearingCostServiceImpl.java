@@ -49,6 +49,7 @@ public class ClearingCostServiceImpl implements ClearingCostService {
     }
 
     @Override
+    @Transactional
     public ClearingCostDto update(ClearingCostDto clearingCostDto) {
 
         ClearingCost clearingCostToBeUpdated = clearingCostRepository.findByCountryCode(clearingCostDto.countryCode())
