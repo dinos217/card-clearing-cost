@@ -32,6 +32,7 @@ public class ClearingCostServiceImpl implements ClearingCostService {
     }
 
     @Override
+    @Transactional
     public ClearingCostDto findByCountry(String countryCode) {
 
         ClearingCost clearingCost = clearingCostRepository.findByCountryCode(countryCode)

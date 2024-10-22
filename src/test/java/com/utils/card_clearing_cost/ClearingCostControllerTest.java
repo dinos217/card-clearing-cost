@@ -34,7 +34,7 @@ public class ClearingCostControllerTest {
     @BeforeEach
     public void setup() throws Exception {
 
-        ClearingCostDto clearingCostDto = new ClearingCostDto(null, "CRO", new BigDecimal(5));
+        ClearingCostDto clearingCostDto = new ClearingCostDto("CRO", new BigDecimal(5));
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/clearing-cost")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(clearingCostDto));
@@ -46,7 +46,7 @@ public class ClearingCostControllerTest {
     @Test
     public void saveClearingCostTest() throws Exception {
 
-        ClearingCostDto clearingCostDto = new ClearingCostDto(null, "ESP", new BigDecimal(5));
+        ClearingCostDto clearingCostDto = new ClearingCostDto("ESP", new BigDecimal(5));
 
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/clearing-cost")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -70,7 +70,7 @@ public class ClearingCostControllerTest {
     @Test
     public void findNonExistentClearingCostTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/clearing-cost/ABC"))
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isNotFound())
                 .andDo(print());
     }
 
@@ -87,7 +87,7 @@ public class ClearingCostControllerTest {
     @Test
     public void updateClearingCostTest() throws Exception {
 
-        ClearingCostDto clearingCostDto = new ClearingCostDto(null, "CRO", new BigDecimal(6));
+        ClearingCostDto clearingCostDto = new ClearingCostDto("CRO", new BigDecimal(6));
 
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.put("/clearing-cost")
                 .contentType(MediaType.APPLICATION_JSON)

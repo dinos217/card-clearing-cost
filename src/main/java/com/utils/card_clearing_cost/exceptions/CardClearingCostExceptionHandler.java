@@ -15,9 +15,31 @@ public class CardClearingCostExceptionHandler {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @ExceptionHandler(NotFoundException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
     public ResponseEntity<ApiExceptionMessage> processValidationError(NotFoundException e) {
+
+        logger.info("ERROR --> {}", e.getMessage());
+
+        ApiExceptionMessage response = buildApiExceptionMessage(e, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(BinlistException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseBody
+    public ResponseEntity<ApiExceptionMessage> processValidationError(BinlistException e) {
+
+        logger.info("Binlist ERROR --> {}", e.getMessage());
+
+        ApiExceptionMessage response = buildApiExceptionMessage(e, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity<ApiExceptionMessage> processValidationError(BadRequestException e) {
 
         logger.info("ERROR --> {}", e.getMessage());
 

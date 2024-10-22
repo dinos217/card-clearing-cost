@@ -6,7 +6,7 @@ import com.utils.card_clearing_cost.entities.ClearingCost;
 public class ClearingCostConverter {
 
     public static ClearingCostDto convert(ClearingCost clearingCost) {
-        return new ClearingCostDto(clearingCost.getId(), clearingCost.getCountryCode(),
+        return new ClearingCostDto(clearingCost.getCountryCode(),
                 clearingCost.getClearingCost());
     }
 

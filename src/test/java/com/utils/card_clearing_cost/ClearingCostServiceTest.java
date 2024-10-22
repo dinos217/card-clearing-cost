@@ -37,7 +37,7 @@ public class ClearingCostServiceTest {
 
     @Test
     void testSaveClearingCost() {
-        ClearingCostDto dto = new ClearingCostDto(null, "ESP", new BigDecimal(5));
+        ClearingCostDto dto = new ClearingCostDto("ESP", new BigDecimal(5));
 
         ClearingCost clearingCost = buildClearingCost();
 
@@ -92,12 +92,12 @@ public class ClearingCostServiceTest {
 
         when(clearingCostRepository.save(any(ClearingCost.class))).thenReturn(clearingCost);
 
-        ClearingCostDto dto = new ClearingCostDto(null, "CRO", new BigDecimal(5));
+        ClearingCostDto dto = new ClearingCostDto("CRO", new BigDecimal(5));
 
         ClearingCostDto result = clearingCostService.save(dto);
 
         assertEquals("CRO", result.countryCode());
-        assertEquals(1L, result.id());
+//        assertEquals(1L, result.id());
     }
 
     @Test
