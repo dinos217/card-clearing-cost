@@ -2,6 +2,7 @@ package com.utils.card_clearing_cost.controllers;
 
 import com.utils.card_clearing_cost.dtos.ClearingCostDto;
 import com.utils.card_clearing_cost.services.CostCalculationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ public class CostCalculationController {
 
     private final CostCalculationService costCalculationService;
 
+    @Autowired
     public CostCalculationController(CostCalculationService costCalculationService) {
         this.costCalculationService = costCalculationService;
     }

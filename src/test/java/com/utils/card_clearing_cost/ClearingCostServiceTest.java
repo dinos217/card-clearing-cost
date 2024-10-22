@@ -97,7 +97,6 @@ public class ClearingCostServiceTest {
         ClearingCostDto result = clearingCostService.save(dto);
 
         assertEquals("CRO", result.countryCode());
-//        assertEquals(1L, result.id());
     }
 
     @Test

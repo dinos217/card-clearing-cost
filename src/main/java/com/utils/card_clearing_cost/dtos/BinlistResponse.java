@@ -15,7 +15,6 @@ public class BinlistResponse {
     public static class Country {
         private String alpha2;
 
-        // Getters and setters
         public String getAlpha2() {
             return alpha2;
         }

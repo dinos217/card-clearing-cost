@@ -19,7 +19,7 @@ public class CardClearingCostExceptionHandler {
     @ResponseBody
     public ResponseEntity<ApiExceptionMessage> processValidationError(NotFoundException e) {
 
-        logger.info("ERROR --> {}", e.getMessage());
+        logger.info("Error: {}", e.getMessage());
 
         ApiExceptionMessage response = buildApiExceptionMessage(e, HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
@@ -30,7 +30,7 @@ public class CardClearingCostExceptionHandler {
     @ResponseBody
     public ResponseEntity<ApiExceptionMessage> processValidationError(BinlistException e) {
 
-        logger.info("Binlist ERROR --> {}", e.getMessage());
+        logger.info("Error: {}", e.getMessage());
 
         ApiExceptionMessage response = buildApiExceptionMessage(e, HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
@@ -41,7 +41,7 @@ public class CardClearingCostExceptionHandler {
     @ResponseBody
     public ResponseEntity<ApiExceptionMessage> processValidationError(BadRequestException e) {
 
-        logger.info("ERROR --> {}", e.getMessage());
+        logger.info("Error: {}", e.getMessage());
 
         ApiExceptionMessage response = buildApiExceptionMessage(e, HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);

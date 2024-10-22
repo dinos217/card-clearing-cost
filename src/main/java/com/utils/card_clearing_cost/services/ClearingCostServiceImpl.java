@@ -54,7 +54,8 @@ public class ClearingCostServiceImpl implements ClearingCostService {
     public ClearingCostDto update(ClearingCostDto clearingCostDto) {
 
         ClearingCost clearingCostToBeUpdated = clearingCostRepository.findByCountryCode(clearingCostDto.countryCode())
-                .orElseThrow(() -> new NotFoundException("Could not find country code " + clearingCostDto.countryCode()));
+                .orElseThrow(() -> new NotFoundException("Could not find country code "
+                        + clearingCostDto.countryCode()));
 
         clearingCostToBeUpdated.setCountryCode(clearingCostDto.countryCode());
         clearingCostToBeUpdated.setClearingCost(clearingCostDto.clearingCost());

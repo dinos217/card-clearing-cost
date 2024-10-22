@@ -1,6 +1,8 @@
 package com.utils.card_clearing_cost.services;
 
 import com.utils.card_clearing_cost.dtos.BinlistResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -8,6 +10,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class BinlistService {
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final WebClient webClient;
 
     public BinlistService(WebClient.Builder webClientBuilder) {
@@ -23,6 +26,9 @@ public class BinlistService {
                     BinlistResponse.Country country = binlistResponse.getCountry();
                     return country != null ? country.getAlpha2() : null;
                 })
-                .onErrorResume(e -> Mono.error(new RuntimeException("Could not retrieve country information from Binlist")));
+                .onErrorResume(e -> {
+                    logger.info("Message from Binlist API --> {}", e.getMessage());
+                    return Mono.error(new RuntimeException("Could not retrieve country information from Binlist"));
+                });
     }
 }
