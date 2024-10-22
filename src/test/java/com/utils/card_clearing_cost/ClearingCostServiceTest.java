@@ -39,10 +39,7 @@ public class ClearingCostServiceTest {
     void testSaveClearingCost() {
         ClearingCostDto dto = new ClearingCostDto(null, "ESP", new BigDecimal(5));
 
-        ClearingCost clearingCost = new ClearingCost();
-        clearingCost.setId(1L);
-        clearingCost.setCountryCode("ESP");
-        clearingCost.setClearingCost(new BigDecimal(5));
+        ClearingCost clearingCost = buildClearingCost();
 
         when(clearingCostRepository.save(any(ClearingCost.class))).thenReturn(clearingCost);
 
@@ -69,10 +66,7 @@ public class ClearingCostServiceTest {
 
     @Test
     void testFindAll() {
-        ClearingCost clearingCost1 = new ClearingCost();
-        clearingCost1.setId(1L);
-        clearingCost1.setCountryCode("ESP");
-        clearingCost1.setClearingCost(new BigDecimal(5));
+        ClearingCost clearingCost1 = buildClearingCost();
 
         ClearingCost clearingCost2 = new ClearingCost();
         clearingCost2.setId(2L);
@@ -90,10 +84,7 @@ public class ClearingCostServiceTest {
 
     @Test
     void testUpdateClearingCost() {
-        ClearingCost clearingCost = new ClearingCost();
-        clearingCost.setId(1L);
-        clearingCost.setCountryCode("ESP");
-        clearingCost.setClearingCost(new BigDecimal(5));
+        ClearingCost clearingCost = buildClearingCost();
 
         when(clearingCostRepository.findByCountryCode("ESP")).thenReturn(Optional.of(clearingCost));
 
@@ -111,10 +102,7 @@ public class ClearingCostServiceTest {
 
     @Test
     void testDeleteClearingCost() {
-        ClearingCost clearingCost = new ClearingCost();
-        clearingCost.setId(1L);
-        clearingCost.setCountryCode("ESP");
-        clearingCost.setClearingCost(new BigDecimal(5));
+        ClearingCost clearingCost = buildClearingCost();
 
         when(clearingCostRepository.findByCountryCode("ESP")).thenReturn(Optional.of(clearingCost));
 
@@ -133,4 +121,11 @@ public class ClearingCostServiceTest {
         assertEquals("Could not find country code ABC", notFoundException.getMessage());
     }
 
+    private static ClearingCost buildClearingCost() {
+        ClearingCost clearingCost = new ClearingCost();
+        clearingCost.setId(1L);
+        clearingCost.setCountryCode("ESP");
+        clearingCost.setClearingCost(new BigDecimal(5));
+        return clearingCost;
+    }
 }
