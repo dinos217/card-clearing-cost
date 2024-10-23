@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/card-cost")
+@RequestMapping(value = "/v1/card-cost")
 public class CostCalculationController {
 
     private final CostCalculationService costCalculationService;
