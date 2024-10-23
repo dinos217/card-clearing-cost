@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface ClearingCostRepository extends JpaRepository<ClearingCost, Long> {
 
     Optional<ClearingCost> findByCountryCode(String countryCode);
+    boolean existsByCountryCode(String countryCode);
 }

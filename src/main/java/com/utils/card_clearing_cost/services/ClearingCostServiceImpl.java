@@ -3,6 +3,7 @@ package com.utils.card_clearing_cost.services;
 import com.utils.card_clearing_cost.converters.ClearingCostConverter;
 import com.utils.card_clearing_cost.dtos.ClearingCostDto;
 import com.utils.card_clearing_cost.entities.ClearingCost;
+import com.utils.card_clearing_cost.exceptions.AlreadyExistsException;
 import com.utils.card_clearing_cost.exceptions.NotFoundException;
 import com.utils.card_clearing_cost.repositories.ClearingCostRepository;
 import jakarta.transaction.Transactional;
@@ -24,6 +25,11 @@ public class ClearingCostServiceImpl implements ClearingCostService {
     @Override
     @Transactional
     public ClearingCostDto save(ClearingCostDto clearingCostDto) {
+
+        if (clearingCostRepository.existsByCountryCode(clearingCostDto.countryCode())) {
+            throw new AlreadyExistsException("Clearing cost for country code: " + clearingCostDto.countryCode() +
+                    " already exists.");
+        }
 
         ClearingCost clearingCostToBeSaved = ClearingCostConverter.convert(clearingCostDto);
         ClearingCost clearingCost = clearingCostRepository.save(clearingCostToBeSaved);

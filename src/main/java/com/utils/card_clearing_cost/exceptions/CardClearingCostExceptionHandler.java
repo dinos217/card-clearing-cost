@@ -19,7 +19,7 @@ public class CardClearingCostExceptionHandler {
     @ResponseBody
     public ResponseEntity<ApiExceptionMessage> processValidationError(NotFoundException e) {
 
-        logger.info("Error: {}", e.getMessage());
+        logger.error("API MESSAGE: {}", e.getMessage());
 
         ApiExceptionMessage response = buildApiExceptionMessage(e, HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
@@ -30,7 +30,7 @@ public class CardClearingCostExceptionHandler {
     @ResponseBody
     public ResponseEntity<ApiExceptionMessage> processValidationError(BinlistException e) {
 
-        logger.info("Error: {}", e.getMessage());
+        logger.error("API MESSAGE: {}", e.getMessage());
 
         ApiExceptionMessage response = buildApiExceptionMessage(e, HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
@@ -41,10 +41,21 @@ public class CardClearingCostExceptionHandler {
     @ResponseBody
     public ResponseEntity<ApiExceptionMessage> processValidationError(BadRequestException e) {
 
-        logger.info("Error: {}", e.getMessage());
+        logger.error("API MESSAGE: {}", e.getMessage());
 
         ApiExceptionMessage response = buildApiExceptionMessage(e, HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(AlreadyExistsException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    @ResponseBody
+    public ResponseEntity<ApiExceptionMessage> processValidationError(AlreadyExistsException e) {
+
+        logger.error("API MESSAGE: {}", e.getMessage());
+
+        ApiExceptionMessage response = buildApiExceptionMessage(e, HttpStatus.CONFLICT);
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
     }
 
     private ApiExceptionMessage buildApiExceptionMessage(RuntimeException e, HttpStatus status) {
