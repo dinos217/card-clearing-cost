@@ -42,7 +42,7 @@ public class CostCalculationControllerTest {
     @Test
     public void findClearingCostTest() throws Exception {
 
-        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.get("/card-cost/4170563312345678");
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.get("/v1/card-cost/4170563312345678");
 
         mockMvc.perform(mockRequest)
                 .andExpect(status().isOk())
