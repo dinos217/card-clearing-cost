@@ -31,8 +31,6 @@ public class ClearingCostController {
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<ClearingCostDto> save(@RequestBody ClearingCostDto clearingCostDto) {
 
-        //todo: add logger if i have time
-        //logger.info("Started saving clearing cost...");
         return ResponseEntity.status(HttpStatus.OK).body(clearingCostService.save(clearingCostDto));
     }
 
@@ -51,8 +49,6 @@ public class ClearingCostController {
     @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<ClearingCostDto> update(@RequestBody ClearingCostDto clearingCostDto) {
 
-        //todo: add logger if i have time
-        //logger.info("Started saving clearing cost...");
         return ResponseEntity.status(HttpStatus.OK).body(clearingCostService.update(clearingCostDto));
     }
 

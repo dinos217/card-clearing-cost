@@ -1,4 +1,4 @@
-package com.utils.card_clearing_cost;
+package com.utils.card_clearing_cost.controllers;
 
 import com.utils.card_clearing_cost.dtos.ClearingCostDto;
 import com.utils.card_clearing_cost.services.BinlistService;
@@ -9,7 +9,6 @@ import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -23,7 +22,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@Sql(scripts = {"classpath:schema.sql", "classpath:data.sql"}) //todo: @Ignore this if I cannot find way to mock the services
 public class CostCalculationControllerTest {
 
     @Autowired

@@ -1,10 +1,9 @@
-package com.utils.card_clearing_cost;
+package com.utils.card_clearing_cost.services;
 
 import com.utils.card_clearing_cost.dtos.ClearingCostDto;
 import com.utils.card_clearing_cost.entities.ClearingCost;
 import com.utils.card_clearing_cost.exceptions.NotFoundException;
 import com.utils.card_clearing_cost.repositories.ClearingCostRepository;
-import com.utils.card_clearing_cost.services.ClearingCostServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

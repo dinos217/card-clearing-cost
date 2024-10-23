@@ -1,11 +1,8 @@
-package com.utils.card_clearing_cost;
+package com.utils.card_clearing_cost.services;
 
 import com.utils.card_clearing_cost.dtos.ClearingCostDto;
 import com.utils.card_clearing_cost.exceptions.BinlistException;
 import com.utils.card_clearing_cost.exceptions.NotFoundException;
-import com.utils.card_clearing_cost.services.BinlistService;
-import com.utils.card_clearing_cost.services.ClearingCostService;
-import com.utils.card_clearing_cost.services.CostCalculationServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -42,7 +39,7 @@ public class CostCalculationServiceTest {
         ClearingCostDto dto = new ClearingCostDto("GR", new BigDecimal(15));
         when(clearingCostService.findByCountry("GR")).thenReturn(dto);
 
-        ClearingCostDto response = costCalculationService.findClearingCost("12345678");
+        ClearingCostDto response = costCalculationService.findClearingCost("1234567890");
         assertEquals(response.countryCode(), "GR");
     }
 

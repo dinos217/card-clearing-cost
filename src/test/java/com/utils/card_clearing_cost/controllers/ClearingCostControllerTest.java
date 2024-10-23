@@ -1,4 +1,4 @@
-package com.utils.card_clearing_cost;
+package com.utils.card_clearing_cost.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

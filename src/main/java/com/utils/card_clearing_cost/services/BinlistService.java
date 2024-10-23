@@ -27,7 +27,7 @@ public class BinlistService {
                     return country != null ? country.getAlpha2() : null;
                 })
                 .onErrorResume(e -> {
-                    logger.info("Message from Binlist API --> {}", e.getMessage());
+                    logger.info("FROM BINLIST API --> {}", e.getMessage());
                     return Mono.error(new RuntimeException("Could not retrieve country information from Binlist"));
                 });
     }
