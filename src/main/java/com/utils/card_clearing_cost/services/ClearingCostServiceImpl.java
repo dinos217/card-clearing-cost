@@ -27,7 +27,7 @@ public class ClearingCostServiceImpl implements ClearingCostService {
     public ClearingCostDto save(ClearingCostDto clearingCostDto) {
 
         if (clearingCostRepository.existsByCountryCode(clearingCostDto.countryCode())) {
-            throw new AlreadyExistsException("Clearing cost for country code: " + clearingCostDto.countryCode() +
+            throw new AlreadyExistsException("Clearing cost for country code " + clearingCostDto.countryCode() +
                     " already exists.");
         }
 
