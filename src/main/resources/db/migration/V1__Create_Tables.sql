@@ -3,3 +3,9 @@ CREATE TABLE IF NOT EXISTS clearing_cost (
     country_code VARCHAR NOT NULL UNIQUE,
     clearing_cost DECIMAL(10, 2) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS user_account (
+    id BIGSERIAL PRIMARY KEY,
+    email VARCHAR NOT NULL UNIQUE,
+    password VARCHAR NOT NULL
+);

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/clearing-cost")
+@RequestMapping(value = "/v1/clearing-cost")
 public class ClearingCostController {
 
     private final ClearingCostService clearingCostService;
